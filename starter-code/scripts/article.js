@@ -23,9 +23,11 @@ Article.prototype.toHtml = function() {
    3. article title,
    4. article body, and
    5. publication date. */
-  // $newsArticle.find('')
+  $newArticle.find('address a').text(this.author);
+  $newArticle.find('address a').attr('href', this.authorUrl);
+  $newArticle.find('h1').text(this.title);
   $newArticle.find('.article-body').html(this.body);
-
+  $newArticle.find('time').text(this.publishedOn);
   // Display the date as a relative number of "days ago":
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
   $newArticle.find('time').html('about' + parseInt(new Date() - new Date(this.publishedOn))/60/60/24/1000 + ' days ago');
