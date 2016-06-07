@@ -12,7 +12,7 @@ function Article (opts) {
 
 // Define a method on the Article prototype
 Article.prototype.toHtml = function() {
-  var $newArticle = $('articles.template').clone();
+  var $newArticle = $('article.template').clone();
   $newArticle.attr('data-category', this.category);
 
   /* TODO: Now use jQuery to fill in the rest of the current
@@ -30,7 +30,7 @@ Article.prototype.toHtml = function() {
   $newArticle.find('time').text(this.publishedOn);
   // Display the date as a relative number of "days ago":
   $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
-  $newArticle.find('time').html('about' + parseInt(new Date() - new Date(this.publishedOn))/60/60/24/1000 + ' days ago');
+  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   /* TODO: This cloned article is no longer a template,
    as it now has real data attached to it! We need to account
    for that and change it before this current article gets
