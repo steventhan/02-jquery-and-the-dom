@@ -8,6 +8,7 @@ function Article (opts) {
   this.title = opts.title;
   this.body = opts.body;
   this.publishedOn = opts.publishedOn;
+  this.category = opts.category;
 }
 
 // Define a method on the Article prototype
